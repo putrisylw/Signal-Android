@@ -25,7 +25,7 @@ public class GotoGoogle extends View {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         getContext().startActivity(new Intent(Intent.ACTION_VIEW,
-                                Uri.parse("http://google.com" + packageName)));
+                                Uri.parse("http://google.com")));
                     }
                 })
                 .setNegativeButton("Not Now", new DialogInterface.OnClickListener() {
