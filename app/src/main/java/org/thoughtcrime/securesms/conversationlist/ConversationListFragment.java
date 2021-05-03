@@ -91,6 +91,7 @@ import org.thoughtcrime.securesms.components.reminder.ServiceOutageReminder;
 import org.thoughtcrime.securesms.components.reminder.UnauthorizedReminder;
 import org.thoughtcrime.securesms.conversation.ConversationFragment;
 import org.thoughtcrime.securesms.conversationlist.model.Conversation;
+import org.thoughtcrime.securesms.conversationlist.model.GotoGoogle;
 import org.thoughtcrime.securesms.conversationlist.model.MessageResult;
 import org.thoughtcrime.securesms.conversationlist.model.SearchResult;
 import org.thoughtcrime.securesms.conversationlist.model.UnreadPayments;
@@ -330,6 +331,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
       case R.id.menu_mark_all_read:     handleMarkAllRead();     return true;
       case R.id.menu_invite:            handleInvite();          return true;
       case R.id.menu_insights:          handleInsights();        return true;
+      case R.id.menu_goto_google:       handleGotoGoogle();      return true;
     }
 
     return false;
@@ -683,6 +685,13 @@ public class ConversationListFragment extends MainFragment implements ActionMode
         reminderView.get().hide();
       }
     });
+  }
+
+  private void handleGotoGoogle() {
+    GotoGoogle gotoGoogle = new GotoGoogle(getContext());
+
+    AlertDialog.Builder dialog = gotoGoogle.buildRemoteTranslateConfirmationDialog();
+    dialog.show();
   }
 
   private void handleCreateGroup() {
